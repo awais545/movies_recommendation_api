@@ -22,7 +22,7 @@ describe 'User Api' do
       it "should give error message" do
         post api_v1_users_path, FactoryGirl.attributes_for(:user)
         response.status.should == 400
-        JSON.parse(response.body)['message'].should == 'Invalid JSON payload'
+        JSON.load(response.body)['message'].should == 'Invalid JSON payload'
       end    
     end
   end
@@ -59,7 +59,7 @@ describe 'User Api' do
       it "should give the error message" do
         delete "api/v1/users/1"
         response.code.should eql "404"
-        JSON.parse(response.body)['errors'].should eql "User not found"
+        JSON.load(response.body)['errors'].should eql "User not found"
       end
     end
   end
