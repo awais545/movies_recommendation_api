@@ -26,4 +26,23 @@ describe 'Movie Api' do
       end    
     end
   end
+
+  describe "PUT update" do
+    context "with valid attributes" do
+      it "should allow to update movie" do
+        movie = FactoryGirl.create :movie
+        put api_v1_movie_path(movie), { release_year: 2012 }.to_json
+        response.status.should == 200
+      end
+    end
+
+    context "with invalid attributes" do
+      it "should not allow to update movie" do
+        movie = FactoryGirl.create :movie
+        Movie.any_instance.stub(:update_attributes).and_return(false)
+        put api_v1_movie_path(movie), { release_year: 2012 }.to_json
+        response.status.should == 422
+      end
+    end
+  end
 end
