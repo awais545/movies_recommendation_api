@@ -27,22 +27,22 @@ API Routes
 
   
 
-      POST   /users/
-      UPDATE /users/:id
-      DELETE /users/:id
+      POST   /api/v1/users/
+      UPDATE /api/v1/users/:id
+      DELETE /api/v1/users/:id
 
 
 **Movie**
 
-      POST   /movies/
-      UPDATE /movies/:id
-      DELETE /movies/:id
+      POST   /api/v1/movies/
+      UPDATE /api/v1/movies/:id
+      DELETE /api/v1/movies/:id
 
 
 **Like**
   
-    POST   /movies/:movie_id/users/:user_id/like
-    DELETE /likes/:id
+    POST   /api/v1/movies/:movie_id/users/:user_id/like
+    DELETE /api/v1/likes/:id
 
 
 ----------
