@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'Like Api' do
-  let!(:movie)    { FactoryGirl.create :movie }
-  let!(:user)     { FactoryGirl.create :user }
+  let(:movie) { FactoryGirl.create :movie }
+  let(:user)  { FactoryGirl.create :user }
 
   describe "POST create" do
     context "when user try to like the movie first time" do

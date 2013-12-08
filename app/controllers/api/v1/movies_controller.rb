@@ -3,10 +3,10 @@ class Api::V1::MoviesController < ApplicationController
 
   # POST /api/v1/movies
   def create
-    content = parse_request_body
-    return json_format_error unless content
+    params_data = parse_json_request
+    return render json: { errors: I18n::t('invalid_format') }, status: 400 unless params_data
     
-    @movie = Movie.new(content)
+    @movie = Movie.new(params_data)
 
     if @movie.save
       render json: @movie, status: 201
@@ -29,7 +29,7 @@ class Api::V1::MoviesController < ApplicationController
   # DELETE /api/v1/movies/:id
   def destroy
     @movie = Movie.find_by_id(params[:id])
-    return render :json => { :errors => "Movie not found" }, status: 404 unless @movie
+    return render json: { :errors => I18n::t('movie_not_found') }, status: 404 unless @movie
     
     @movie.destroy
     render json: @movie, status: 204 #no_content

@@ -3,10 +3,10 @@ class Api::V1::UsersController < ApplicationController
   
   # POST /api/v1/users
   def create
-    content = parse_request_body
-    return json_format_error unless content
+    params_data = parse_json_request
+    return render json: { :errors => I18n::t('invalid_format') }, status: 400 unless params_data
     
-    @user = User.new(content)
+    @user = User.new params_data
     
     if @user.save
       render json: @user, status: 201 #creation response
@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
   # DELETE /api/v1/users/:id
   def destroy
     @user = User.find_by_id(params[:id])
-    return render json: { :errors => "User not found" }, status: 404 unless @user
+    return render json: { :errors => I18n::t('user_not_found') }, status: 404 unless @user
     
     @user.destroy
     render json: @user, status: 204 #no_content

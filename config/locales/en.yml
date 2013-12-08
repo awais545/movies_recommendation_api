@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  invalid_format: Invalid Json Format
+  user_not_found: User not found
+  movie_not_found: Movie not found
+  like_not_found: Like not found

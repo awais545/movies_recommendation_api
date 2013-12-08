@@ -22,7 +22,7 @@ describe 'Movie Api' do
       it "should give error message" do
         post api_v1_movies_path, FactoryGirl.attributes_for(:movie)
         response.status.should == 400
-        JSON.load(response.body)['message'].should == 'Invalid JSON payload'
+        JSON.load(response.body)['errors'].should eql I18n::t('invalid_format')
       end    
     end
   end
@@ -51,7 +51,7 @@ describe 'Movie Api' do
       it "destroys the requested movie" do
         movie = FactoryGirl.create :movie
         delete "api/v1/movies/#{movie.id}"
-        response.code.should eql "204"
+        response.code.should == "204"
       end
     end
 
@@ -59,7 +59,7 @@ describe 'Movie Api' do
       it "should give the error message" do
         delete "api/v1/movies/1"
         response.code.should eql "404"
-        JSON.load(response.body)['errors'].should eql "Movie not found"
+        JSON.load(response.body)['errors'].should eql I18n::t('movie_not_found')
       end
     end
   end
