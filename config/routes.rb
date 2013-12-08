@@ -1,11 +1,9 @@
 MovieRecommendationSystem::Application.routes.draw do
-  resources :likes
-
-
-  resources :movies
-
-
-  resources :users
+  namespace :api do
+    namespace :v1 do
+      resources :users,  except: [:new, :index, :show, :edit]
+     end
+  end
 
 
   # The priority is based upon order of creation:
