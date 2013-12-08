@@ -1,5 +1,5 @@
 MovieRecommendationSystem::Application.routes.draw do
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users,   only: [:create, :update, :destroy]
       resources :movies,  only: [:create, :update, :destroy]
