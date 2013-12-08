@@ -2,7 +2,8 @@ MovieRecommendationSystem::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users,  except: [:new, :index, :show, :edit]
-     end
+      resources :movies, except: [:new, :index, :show, :edit]
+    end
   end
 
 
