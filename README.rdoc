@@ -1,44 +1,5 @@
 ## Getting Started
-run the following commands 
 
-1. `bundle install command`
-2. `bundle exec rake db:create`
-`3. bundle exec rake db:migrate`
-
-
-## Description
-
-This is Simple but interesting. API using which you can, create, update and delete user and movies. User can like the movie's. But the condition on liking is, s/he can only like the movie once.
-
-Controllers are present at ``app/controllers/api/v1/`` folder
-Integration specs for API are located at ``spec/api/v1/`` folder
-Model's specs are at ``spec/models/``
-
-## API ROUTES
-
-### User
-```
-  POST   /users/
-  UPDATE /users/:id
-  DELETE /users/:id
-```
-   
-   
-### Movie
-```
-  POST   /movies/
-  UPDATE /movies/:id
-  DELETE /movies/:id
-```
-   
-### Like
-```
-  POST   /movies/:movie_id/users/:user_id/like
-  DELETE /likes/:id
-```
-
-### TODO:s
-
-Api Authentication
-Get the top rated movies
-Get the movies liked by user
+1. ``bundle install command``
+2. ``bundle exec rake db:create``
+3. ``bundle exec rake db:migrate``
