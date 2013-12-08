@@ -14,9 +14,13 @@
 ActiveRecord::Schema.define(:version => 20131208125340) do
 
   create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "movie_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "likes", ["user_id", "movie_id"], :name => "index_likes_on_user_id_and_movie_id"
 
   create_table "movies", :force => true do |t|
     t.string   "title"
