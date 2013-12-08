@@ -45,4 +45,14 @@ describe 'User Api' do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    context "user with valid id" do
+      it "should destroys the requested user" do
+        user = FactoryGirl.create :user
+        delete "api/v1/users/#{user.id}"
+        response.code.should eql "204"
+      end
+    end
+  end
 end
