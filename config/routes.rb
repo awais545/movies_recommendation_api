@@ -1,4 +1,7 @@
 MovieRecommendationSystem::Application.routes.draw do
+  resources :likes
+
+
   resources :movies
 
 
