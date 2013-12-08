@@ -45,4 +45,22 @@ describe 'Movie Api' do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    context "movie with valid id" do
+      it "destroys the requested movie" do
+        movie = FactoryGirl.create :movie
+        delete "api/v1/movies/#{movie.id}"
+        response.code.should eql "204"
+      end
+    end
+
+    context "movie with invalid id" do
+      it "should give the error message" do
+        delete "api/v1/movies/1"
+        response.code.should eql "404"
+        JSON.load(response.body)['errors'].should eql "Movie not found"
+      end
+    end
+  end
 end
