@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Movie do
-  pending "add some examples to (or delete) #{__FILE__}"
+	context "Associations" do
+  	it { should have_many(:likes) }
+  end
+
+  context "Validations" do
+		it { should validate_presence_of(:title) }
+		it { should serialize(:genres).as(Array) }
+	end
 end

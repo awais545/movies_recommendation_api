@@ -54,5 +54,13 @@ describe 'User Api' do
         response.code.should eql "204"
       end
     end
+
+    context "user with invalid id" do
+      it "should give the error message" do
+        delete "api/v1/users/1"
+        response.code.should eql "404"
+        JSON.parse(response.body)['errors'].should eql "User not found"
+      end
+    end
   end
 end
