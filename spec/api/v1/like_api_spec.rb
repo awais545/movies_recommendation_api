@@ -39,4 +39,3 @@ describe 'Like Api' do
     end
   end
 end
-Like
