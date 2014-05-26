@@ -1,6 +1,10 @@
 class Api::V1::MoviesController < ApplicationController
   respond_to :json
 
+  def index
+    render json: Movie.search(params), status: 201
+  end
+
   # POST /api/v1/movies
   def create
     params_data = parse_json_request
