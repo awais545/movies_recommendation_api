@@ -31,6 +31,8 @@ GEM
     ansi (1.4.3)
     arel (3.0.3)
     builder (3.0.4)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -39,6 +41,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    connection_pool (2.0.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -78,6 +81,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-protection (1.5.3)
+      rack
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -100,6 +105,9 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.7)
+    redis-namespace (1.4.1)
+      redis (~> 3.0.4)
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -121,6 +129,16 @@ GEM
       tilt (~> 1.3)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
+    sidekiq (3.1.0)
+      celluloid (>= 0.15.2)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -132,6 +150,7 @@ GEM
       ref
     thor (0.18.1)
     tilt (1.4.1)
+    timers (1.1.0)
     tire (0.6.2)
       activemodel (>= 3.0)
       activesupport
@@ -162,6 +181,8 @@ DEPENDENCIES
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers
+  sidekiq
+  sinatra
   therubyracer
   tire
   uglifier (>= 1.0.3)

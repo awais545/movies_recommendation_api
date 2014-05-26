@@ -27,3 +27,7 @@ end
 group :test do
   gem 'factory_girl_rails', '~>4.2'
 end
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'imdb'
