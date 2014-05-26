@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 MovieRecommendationSystem::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -13,4 +15,6 @@ MovieRecommendationSystem::Application.routes.draw do
       resources :likes, only: [:destroy, :show]
     end
   end
+
+  mount Sidekiq::Web, at: '/sidekiq'
 end

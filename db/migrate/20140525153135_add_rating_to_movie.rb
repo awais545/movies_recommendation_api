@@ -1,5 +1,5 @@
 class AddRatingToMovie < ActiveRecord::Migration
   def change
-  	add_column :movies, :rating, :integer, default: 0
+  	add_column :movies, :rating, :float, default: 0
   end
 end
