@@ -32,7 +32,7 @@ Getting Started
 New Features
 ------------
 
-You can search the movie by title, genres and release year.
+User can search the movie by title, genres and release year. Some specs for search are also added.
 User might be interested in view the rating of movie from IMDB. So after movie creation fetch the rating from IMDB and save at our end.
 
 I am using ElasticSearch for fast quering the result. There are other options too like Sunspot or ThinkingSphinx. Beside this, as we are using 3rd party service ( IMDB API ) for getting the rating, I believe its better we update it in a background job, for that purpose I am using Sidekiq which uses Redis. Other options are delayedjob or rescue.
