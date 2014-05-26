@@ -1,6 +1,32 @@
 require 'spec_helper'
 
 describe 'Movie Api' do
+  describe "GET index" do
+    context "only show the currently playing movies" do
+      it "should return all movies" do
+        get api_v1_movies_path
+        Movie.currently_playing.count.should == JSON.load(response.body).count
+      end    
+    end
+
+    describe "Filters" do
+      context "upcoming movies" do
+        it "should list all movies comming in future" do
+          get api_v1_movies_path(upcoming_movies: true)
+          Movie.upcoming.count == JSON.load(response.body).count
+        end
+      end
+
+      context "when query string is given" do
+        # search on title
+        it "should only show the movie matching title" do
+          get api_v1_movies_path, { query: "How to train a dragon" }
+          JSON.load(response.body).count.should == 1
+        end
+      end
+    end
+  end
+
   describe "POST create" do
     context "with valid attributes" do
       it "should create the movie" do
