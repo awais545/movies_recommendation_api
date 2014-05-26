@@ -1,25 +1,26 @@
 Getting Started
 ---------------
-`sudo apt-get update`
-`sudo apt-get install openjdk-7-jre-headless -y`
+  `sudo apt-get update` <br>
+  `sudo apt-get install openjdk-7-jre-headless -y`
 
-# EASY Installation of ElasticSearch
-`wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb`
-`sudo dpkg -i elasticsearch-1.1.1.deb`
+### EASY Installation of ElasticSearch
+  `wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb`<br>
+  `sudo dpkg -i elasticsearch-1.1.1.deb`<br>
 
-# Start ElasticSearch
-`sudo service elasticsearch start`
+### Start ElasticSearch
+  `sudo service elasticsearch start`
 
-`wget http://download.redis.io/redis-stable.tar.gz`
-`tar xvzf redis-stable.tar.gz`
-`cd redis-stable`
-`sudo make install`
-`cd utils`
-`sudo ./install_server.sh`
+### Redis Setup
+  `wget http://download.redis.io/redis-stable.tar.gz`<br>
+  `tar xvzf redis-stable.tar.gz`<br>
+  `cd redis-stable`<br>
+  `sudo make install`<br>
+  `cd utils`<br>
+  `sudo ./install_server.sh`<br>
 
-# start redis, Suggestion: You might want to create alias for the following commands ;)
-`sudo service redis_6379 start`
-`sudo service redis_6379 stop`
+### Start Redis
+  `sudo service redis_6379 start`<br> 
+  `sudo service redis_6379 stop`<br>
 
 
  1. `bundle install command` 
@@ -35,6 +36,7 @@ You can search the movie by title, genres and release year.
 User might be interested in view the rating of movie from IMDB. So after movie creation fetch the rating from IMDB and save at our end.
 
 I am using ElasticSearch for fast quering the result. There are other options too like Sunspot or ThinkingSphinx. Beside this, as we are using 3rd party service ( IMDB API ) for getting the rating, I believe its better we update it in a background job, for that purpose I am using Sidekiq which uses Redis. Other options are delayedjob or rescue.
+
 ----------
 
 Description
